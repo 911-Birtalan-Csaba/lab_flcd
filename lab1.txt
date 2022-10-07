@@ -1,0 +1,129 @@
+*^
+^arrot lang
+*^
+
+*^ 
+	p1 
+^*
+
+^^ Main function
+Carrot JumpHigh() 
+#
+	^^ define variables
+	^num1 = 8
+	^num2 = 5
+	^num3 = 4
+	^result = GetMinCarrot(^num1, ^num2, ^num3) ^^execute the function
+	-->(^result) ^^print the result
+#
+
+Integer GetMinCarrot( ^^ get the minimum of 3 numbers
+	^var1: Integer, 
+	^var2: Integer, 
+	^var3: Integer) --> ^varMin
+#
+	^varMin: Integer
+	^var1 < ^var2 --> ^varMin^1
+	^varMin > ^var3 --> ^varMin^2
+#
+
+Integer GetMaxCarrot( ^^ get the maximum of 3 numbers
+	^var1: Integer, 
+	^var2: Integer, 
+	^var3: Integer) --> ^varMax
+#
+	^varMax: Integer
+	^var1 > ^var2 --> ^varMax^1
+	^varMax < ^var3 --> ^varMax^2
+#
+
+
+
+*^
+	p2
+^*
+
+^^ Main function
+Carrot JumpHigh() 
+#
+	^^ define variables
+	^num = 11
+	^result = IsPrime(^num)
+	-->(^result) ^^print the result
+	
+	^num2 = 3
+	^num3 = 6
+	^result = GCD(^num2, ^num3)
+	-->(^result)
+	
+	^result = SecondOrderEquation(^num1, ^num2, ^num3)
+	-->(^result)
+#
+
+Bool IsPrime(^num: Integer) --> True ^^ the default return value
+#
+	^num % 2 --> False
+	^num is 0 or 1 --> False
+	for ^i = 1 | ^i < ^num / 2 | ^i++
+	#
+		^num % i == 0 --> False
+	#
+#
+
+Integer GCD(^num1: Integer, ^num2: Integer) --> num1
+#
+	while (^num1 <> ^num2)
+	#
+		^num1 > ^num2 --> num1 -= num2
+		## ^^else
+		num2 -= num1
+		
+	#
+#
+
+Integer SecondOrderEquation(
+	^a: Integer, 
+	^b: Integer, 
+	^c: Integer) --> ^result1, ^result2
+#
+	^b ^% 2 - 4 * ^a * ^c --> ^delta
+	($ ^delta $) - 4 * ^a --> ^result1
+	-(($ ^delta $) - 4 * ^a) --> ^result2
+#
+
+*^
+	p3
+^*
+
+^^ Main function
+Carrot JumpHigh() 
+#
+	^^ define variables
+	^numbers = [11, 6, 7, 30]
+	
+	^result = 0
+	for ^i = 0 | ^i < ^number.len | ^i++
+	#
+		^result + ^numbers[^i] --> ^result
+	#
+	-->(^result) ^^print
+	
+	^result = ^numbers[0]
+	for ^i = 1 | ^i < ^number.len | ^i++
+	#
+		^result < ^numbers[^i] --> ^result
+	#
+	-->(^result) ^^print
+#
+
+*^
+	perr
+^*
+Carrot JumpHigh() 
+#
+	for ^i = 0 | ^i < 10 | ^i++
+	#
+	
+	^result = 2
+	-->^result
+#
