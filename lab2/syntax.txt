@@ -1,0 +1,40 @@
+program ::= "main" "{" compound_statement "}"
+
+compound_statement ::= statement ";" | statement ";" compound_statement
+
+statement ::= simple_statement | struct_statement
+
+simple_statement ::= assignment_statement | iostatement | declaration
+
+assignment_statement ::= identifier "=" expression
+
+iostatement ::= "input_int_number" "(" identifier ")" | "input_string"
+	"(" identifier ")" | "print" "(" identifier "(" | 
+	"print" "(" constant ")"
+
+declaration ::= simple_declaration | array_declaration
+
+simple_declaration ::= type " " identifier
+
+type ::= "integer" | "string" | "boolean"
+
+array_declaration ::= "[" type "]" identifier "<" ">"
+
+struct_statement ::= compound_statement | ifstatement | whilestatement
+
+ifstatement ::= "if" condition_statementf compound_statement {"elseif" condition_statement compound_statement}
+	["else" compound_statement]
+
+whilestatement ::= "while" condition_statement compound_statement
+
+assignment_statement ::= identifier "~" expression
+
+expression ::= expression "+" factor | expression "-" factor | expression "*" factor | expression "/" factor | factor
+
+factor ::= "(" expression ")" | identifier | constant
+
+condition_statement ::= "(" expression relation expression ")"
+
+relation ::= "<" | "<=" | "=" | "not =" | ">=" | ">" | "and" | "or" | "not"
+
+if x == 1 
