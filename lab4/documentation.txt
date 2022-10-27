@@ -1,0 +1,16 @@
+Representation:
+I chose to implement a hash table for storing the identifiers and constants in the symbol table.
+We assume that in a symbol table, the keys are strings. The hash function returns a hash value by converting a string
+to an integer value and dividing it by the size of the table. In case of the insertion operation, a rehashing is also
+done whenever the load factor is greater than 0.6.
+
+Operations:
+- insert(self, key: str):
+    pre: the key is a string
+    post: the key is inserted in the hash table
+- remove(self, key: str):
+    pre: the key is a string
+    post: the key is removed from the hash table
+- get(self, key: str):
+    pre: the key is a string
+    post: Returns True if the key exists, otherwise False

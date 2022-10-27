@@ -1,0 +1,9 @@
+if (^num % 2 equals 0)
+    -->(False)
+
+if (^num equals 0 or ^num equals 1)
+    --> False
+for ^i = 1 | ^i < ^num / 2 | ^i += 1
+#
+    ^num % ^i == 0 --> False
+#
