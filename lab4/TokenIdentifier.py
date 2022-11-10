@@ -2,6 +2,7 @@ import re
 from re import match
 
 from LanguageLexical import LanguageLexical
+from Utils import Utils
 from hash_table import HashTable
 from pif import Pif
 
@@ -11,12 +12,16 @@ class TokenIdentifier:
         self.__languageLexical = languageLexical
         self.__symbolTable = HashTable()
         self.__pif = Pif()
+        self.__utils = Utils()
+        self.__identifierFA = self.__utils.readFromFile('program/identifier_FA.in')
+        self.__is_integer_constantFA = self.__utils.readFromFile('program/integer_constant_FA.in')
+        self.__is_string_FA = self.__utils.readFromFile("program/stringFA.in")
 
     def is_identifier(self, token: str) -> bool:
-        return match(r'^\^[a-zA-Z]([a-zA-Z0-9])*$', token) is not None
+        return self.__identifierFA.isValid(token)
 
     def is_integer_constant(self, token: str) -> bool:
-        return match(r'^[+-]?[0-9]+$', token) is not None
+        return self.__is_integer_constantFA.isValid(token)
 
     def is_string_constant(self, token: str) -> bool:
         return match(r'^"(.*)"$', token) is not None
