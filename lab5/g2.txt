@@ -1,0 +1,111 @@
+^var1 = 8
+^var2 = 8
+^var3 = 5
+if (^var1 < ^var2)
+    ^varMin = ^var1
+if (^varMin > ^var3)
+    ^varMin = ^var3
+-->(^varMin)
+
+
+^numbers = [11, 6, 7, 30]
+
+^result = 0
+for ^i = 0 | ^i < len(^number) | ^i += 1
+#
+    ^result + ^numbers[^i] --> ^result
+#
+-->(^result)
+
+
+if (^num % 2 equals 0)
+    -->(False)
+
+if (^num equals 0 or ^num equals 1)
+    --> False
+for ^i = 1 | ^i < ^num / 2 | ^i += 1
+#
+    ^num % ^i == 0 --> False
+#
+
+
+S = Program
+Program -> CompoundStatement
+Program -> ?
+CompoundStatement -> Statement \n CompoundStatement
+CompoundStatement -> ?
+Statement -> AssignStatement
+Statement -> IfStatement
+Statement -> WhileStatement
+Statement -> FunctionCallStatement
+AssignStatement -> VarStatement
+AssignStatement -> ArrStatement
+VarStatement -> Identifier = Expression
+Identifier -> ^Letter RestOfIdentifier
+RestOfIdentifier -> Letter
+RestOfIdentifier -> Digit
+RestOfIdentifier -> ?
+Letter -> A
+Letter -> B
+Letter -> C
+Letter -> D
+Letter -> E
+Letter -> F
+Letter -> G
+Letter -> H
+Letter -> I
+Letter -> J
+Letter -> K
+Letter -> L
+Letter -> M
+Letter -> N
+Letter -> O
+Letter -> P
+Letter -> Q
+Letter -> R
+Letter -> S
+Letter -> T
+Letter -> U
+Letter -> V
+Letter -> W
+Letter -> X
+Letter -> Y
+Letter -> Z
+Letter -> a
+Letter -> b
+Letter -> c
+Letter -> d
+Letter -> e
+Letter -> f
+Letter -> g
+Letter -> h
+Letter -> i
+Letter -> j
+Letter -> k
+Letter -> l
+Letter -> m
+Letter -> n
+Letter -> o
+Letter -> p
+Letter -> q
+Letter -> r
+Letter -> s
+Letter -> t
+Letter -> u
+Letter -> v
+Letter -> w
+Letter -> x
+Letter -> y
+Letter -> z
+Digit -> 0
+Digit -> 1
+Digit -> 2
+Digit -> 3
+Digit -> 4
+Digit -> 5
+Digit -> 6
+Digit -> 7
+Digit -> 8
+Digit -> 9
+Expression -> IntExpression
+Expression -> StringExpression

@@ -1,5 +1,10 @@
-from Console import Console
+from Grammar import Grammar
 
 if __name__ == '__main__':
-    ui = Console()
-    ui.run()
+    g = Grammar()
+    g.readFromFile("g.in")
+    print(str(g))
+    if g.checkCFG():
+        print("The grammar is a CFG")
+    else:
+        print("The grammar is not a CFG")
