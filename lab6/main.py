@@ -1,6 +1,7 @@
 from Grammar import Grammar
 from Item import Item
 from Parser import Parser
+from ParserOutput import ParserOutput
 
 if __name__ == '__main__':
     g = Grammar()
@@ -21,5 +22,11 @@ if __name__ == '__main__':
 
     output_band = parser.parse_sequence(['a', 'b', 'b', 'c'])
     print(output_band)
+
+    parserOutput = ParserOutput(output_band, g)
+    parserOutput.compute_parsing_tree()
+    for item in parserOutput.paring_tree:
+        print(item)
+
 
 

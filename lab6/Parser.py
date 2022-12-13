@@ -147,10 +147,18 @@ class Parser:
                 while work_stack[-1] != END_SIGN:
                     work_stack.pop()
             elif self.parsing_table[work_stack[-1]][0] == ACTION.SHIFT:
+                if len(input_stack) == 0:
+                    raise Exception("Input stack is empty")
+
                 top_state = work_stack[-1]
                 symbol = input_stack.pop()
                 work_stack.append(symbol)
+
+                if symbol not in self.parsing_table[top_state][1].keys():
+                    raise Exception(f"Invalid symbol: {symbol} for goto of state {top_state}")
+
                 new_top_state = self.parsing_table[top_state][1][symbol]
+
                 work_stack.append(new_top_state)
             elif self.parsing_table[work_stack[-1]][0] == ACTION.REDUCE:
                 prod = self.grammar.get_production_by_id(

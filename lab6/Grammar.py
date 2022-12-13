@@ -3,6 +3,7 @@ class Grammar:
     STARTING_SYMBOL = "S'"
 
     def __init__(self, is_enhanced=False):
+        self.initial_starting_symbol = ""
         self.N = []
         self.E = []
         self.S = ""
@@ -40,6 +41,7 @@ class Grammar:
             N = self.__process_line(file.readline())
             E = self.__process_line(file.readline())
             S = self.__process_line(file.readline())[0]
+            self.initial_starting_symbol = S
 
             file.readline()  # P =
             # Get all transitions
@@ -68,7 +70,7 @@ class Grammar:
         for prod in self.P.keys():
             for prod_value in self.P[prod]:
                 if isinstance(prod_value[1], int) and prod_value[1] == prod_id:
-                    return prod, prod_value[0]
+                    return prod, prod_value[0]  # (lhs, rhs)
         return None
 
     def check_cfg(self):
