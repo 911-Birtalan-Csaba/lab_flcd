@@ -48,7 +48,7 @@ class Grammar:
             P = {}
             id = 1
             for line in file:
-                split = line.strip().split('->')
+                split = line.strip().split('::=')
                 source = split[0].strip()
                 sequence = split[1].lstrip(' ')
                 sequence_list = []

@@ -1,4 +1,4 @@
-from Grammar import Grammar
+from Parser.Grammar import Grammar
 
 
 class ParserOutputEntry:
